@@ -9,12 +9,12 @@ import glob
 
 
 def clean_cache():
-    # creates an empty folder 'cache' in the current directory,
-    # deletes everything in the cache folder if it already exists
+    # creates an empty folder 'cache' in the current directory if it does not exist,
+    # cleans the cache folder if it already exists
 
-    if not os.path.exists(".\cache"):  # better to use absolute or relative path here?
+    if not os.path.exists(".\cache"):               # better to use absolute or relative path here?
         print("dir does not exist, creating dir")
-        os.mkdir(".\cache")  # use mkdir or mkdirs? I don't understand the difference
+        os.mkdir(".\cache")                         # use mkdir or mkdirs? I don't understand the difference
     else:
         print("dir already exists, cleaning dir")
         shutil.rmtree(".\cache")
@@ -30,7 +30,7 @@ def cache_zip(zip_path, cache_path):
 
 
 def cached_files():
-    # returns a list of all the files in the cache.
+    # returns a list of all files in the cache.
 
     path = os.getcwd() + "\cache\\"
     files_list = glob.glob(path + "*.txt")
@@ -39,8 +39,8 @@ def cached_files():
 
 
 def find_password(files_list):
-    # read the text in each file to
-    # find and extract a password
+    # read contents of each file toin files_list
+    # to find and extract a password
 
     # loop over each file in files_list
     for file in files_list:
